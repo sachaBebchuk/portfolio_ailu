@@ -1,0 +1,350 @@
+body{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+body *{
+	font-family: helvetica;
+	color:white;
+}
+button{
+	width: 15vw;
+	height: 40px;
+	color: black;
+	background-color: gray;
+	border: 0;
+	outline: 0;
+	margin-bottom: 4px;	
+}
+.triangulo-abajo{
+	border: 20px solid transparent;
+	border-top: 20px solid black;
+	width: 0;
+	height: 0;
+	display: inline-block;
+}
+
+.header-div,.navigator,.color,.byn,.kpop,.acerca-de{
+	width: 100vw;
+	height: 100vh;
+}
+
+.header-div{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-image: url("../img/chinito6.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: top;
+	background-size: auto 100vh;
+	background-color: black;
+
+	& > *{
+		width: 30vw;
+		text-align: center;
+	}
+
+	.div-acceder{
+		height: 100vh;
+		justify-content: end;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.btn-acceder{
+		opacity: 0;
+		height: 30px;
+		padding-top: 5px;
+		text-align: center;
+		margin-bottom: 10px;
+		animation-name: btn-acceder-loop;
+		animation-duration: 1.5s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in;
+	}
+	/*
+	&:hover .btn-acceder{
+		width:15vw;
+		opacity: 0.6;
+	}
+	*/
+
+	@keyframes btn-acceder-loop{
+		0%{
+			opacity: 0.3;
+		}
+		50%{
+			opacity: 0.6;
+		}
+		100%{
+			opacity: 0.3;
+		}
+	}
+
+	h1{
+		display: inline;
+		color:white;
+	}
+}
+.navigator{
+	background-color: black;
+	background-image: url("../img/chinito6_blur.jpg");
+	background-repeat: no-repeat;
+	background-position: top;
+	background-attachment: fixed;
+	background-size: auto 100vh;
+	display: flex;
+	background-color: black;
+	align-items: center;
+
+	h1{
+		display: block;
+		color: #872b38;
+		margin-left: 10px;
+	}
+
+	.botonera-nav{
+		position: relative;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		justify-content: space-evenly;
+
+		button{
+			display: block;
+			opacity: 0;
+			transition: 1s;
+		}
+
+		.btn1{
+			animation-delay: 0.3s;
+		}
+		.btn2{
+			animation-delay: 0.5s;
+		}
+		.btn3{
+			animation-delay: 0.7s;
+		}
+		.btn4{
+			animation-delay: 0.9s;
+		}
+	}
+
+	@keyframes boton-entrar{
+		0%{ 
+			opacity: 0;
+			margin-left:-20px;
+		}
+		100%{
+			opacity: 1;
+			margin-left: 0;
+		}
+	}
+
+	&:hover > .botonera-nav > button{
+
+		opacity: 1;
+		animation-name: boton-entrar;
+		animation-duration: 1s;
+		animation-fill-mode: backwards;
+		animation-timing-function: ease-out;
+
+		&:hover{
+			background-color: #872b38;
+			transition: 0.5s;
+		}
+
+		&:active{
+			background-color: #4c1417;
+			transition: 0.1s;
+		}
+	}
+}
+.scrollbar{
+	position: fixed;
+	right: 0;
+	top:0;
+	background-color: #3a3636;
+	width: 2%;
+	height: 100%;
+	.scroll{
+		position: absolute;
+		height: 25%;
+		background-color: fade(#57c9d0,20%);
+		z-index: 10000;
+		width: 100%;
+		display: inline-block;
+		right: 0;
+		top: 0;
+	}
+}
+
+.div-dibujos{
+	display: flex;
+	position: relative;
+	& > .img-div{
+		transition: 1s;
+		&:hover{
+			padding-left: 10vw;
+			padding-right: 10vw;
+		}
+	}
+
+}
+.img-div{
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: auto 100vh;
+}
+
+.color{
+	background-color: #e6b04c;
+}
+
+.byn{
+	background-color: white;
+}
+.pantalla-visor{
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+}
+.visor{
+	display: none;
+	position: fixed;
+	top:0;
+	left: 0;
+	background-color: rgba(255,255,255,0.5);
+	text-align: center;
+}
+
+.acerca-de{
+	position:relative;
+	/*
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	*/
+	background-color:#eec5d5;
+
+	.content{
+
+		display: flex;
+		align-items: center;
+		height: 80vh;
+
+		.descripcion{
+			margin-left: 5vw;
+			width: 60vw;
+			h1{
+				font-family: simplifica;
+				font-size: 700%;
+				margin-top: 0;
+				margin-bottom: 5vh;
+			}
+			p{
+				font-weight: bolder;
+				font-family: CaviarDreamsBold;
+			}
+			p.p-contacto{
+				font-weight: normal;
+				color: rgba(0,0,0,0.2);
+			}
+		}
+
+		img.ailu-logo{
+			margin-left: 5vw;
+			border-radius: 50%;
+			border: 10px solid white;
+		}
+	}
+	.volver{
+		text-align: center;
+		height: 20vh;
+		.btn-inicio{
+			.btn-flechita();    
+			&:hover{
+				margin-top: 1vh; 
+		    }
+		}
+	}
+
+	.footer{
+		background-color: rgba(255,255,255,0.3);
+		height: 1em;
+		color: rgba(0,0,0,0.3);
+		padding-top: 5px;
+		padding-bottom: 5px;
+		font-size: 70%;
+		width: 98vw;
+		padding-right: 2vw;
+		text-align: right;
+		position:absolute;
+		bottom:0;
+	}
+}
+
+@font-face {
+	font-family: CaviarDreams;
+	src: url("../fonts/CaviarDreams.ttf");
+}
+@font-face {
+	font-family: CaviarDreamsBold;
+	src: url("../fonts/Caviar_Dreams_Bold.ttf");
+}
+@font-face {
+	font-family: simplifica;
+	src: url("../fonts/SIMPLIFICA/SIMPLIFICA.ttf");
+}
+
+.btn-flechita(){
+	border-radius: 50%;
+	width: 12vh;
+	height: 12vh;
+	background-color:white;
+	opacity: 0.5;
+	background-image: url("../img/arriba.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.2s;
+    &:hover{
+		width: 14vh;
+		height: 14vh;
+		//margin-top: -1vh; 
+    }
+    &:active{
+		width: 10vh;
+		height: 10vh;
+		margin-top: 2vh; 
+    };
+}
+
+.btn-subir,.btn-bajar{
+	.btn-flechita();
+	position:absolute;
+	left: 50vw;
+	transform: translate(-50%,0);
+}
+
+.btn-subir{
+	top: 20px;
+	&:hover{
+		top: 5px;
+	};
+}
+.btn-bajar{
+	bottom: 20px;
+	transform: translate(-50%,0) rotate(180deg);
+	&:hover{
+		bottom: 5px;
+	};
+}

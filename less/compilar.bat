@@ -1,0 +1,1 @@
+lessc index.less -x > ../css/index.css
